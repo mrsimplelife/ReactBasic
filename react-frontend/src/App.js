@@ -31,12 +31,17 @@ class Counter extends Component {
     this.setState(({ value }) => ({ value: value + 1 }));
     this.setState(({ value }) => ({ value: value + 1 }));
   };
+
   render() {
     const { value } = this.state;
     return (
       <>
         <div>{value}</div>
-        <Button type="primary" onClick={() => this.setState(action.decrease)}>
+        <Button
+          style={{ width: 100 }}
+          type="primary"
+          onClick={() => this.setState(action.decrease)}
+        >
           -1
         </Button>
         <Button type="primary" onClick={() => this.setState(action.increase)}>
@@ -65,16 +70,61 @@ class Fruit extends Component {
     );
   }
 }
-function App() {
-  const fruits = ["banana", "apple", "strawberry"];
-  return (
-    <div className="App">
-      <Counter initialValue={0} />
-      <Counter initialValue={0} />
-      <Counter initialValue={0} />
-      <Fruit fruits={fruits} />
-    </div>
-  );
+
+class PostDetail extends Component {
+  state = {
+    postDetail: null,
+  };
+  componentDidMount() {
+    const { postId } = this.props;
+    this.requestPost(postId);
+  }
+  componentDidUpdate(prevProps) {
+    const { postId } = this.props;
+    if (postId !== prevProps.postId) {
+      this.requestPost(postId);
+    }
+  }
+  requestPost(postId) {
+    console.log(postId);
+    this.setState({
+      postDetail: null,
+    });
+    setTimeout(() => {
+      this.setState({
+        postDetail: `post from ${postId}`,
+      });
+    }, 1000);
+  }
+  render() {
+    const { postDetail } = this.state;
+    return (
+      <>
+        post#{this.props.postId}
+        <hr />
+        {!postDetail && "loading..."}
+        {postDetail}
+      </>
+    );
+  }
+}
+class App extends Component {
+  state = {
+    postId: 10,
+  };
+  render() {
+    const fruits = ["banana", "apple", "strawberry"];
+    return (
+      <div className="App">
+        <Counter initialValue={0} />
+        <Counter initialValue={0} />
+        <Counter initialValue={0} />
+        <Fruit fruits={fruits} />
+        <PostDetail postId={this.state.postId} />
+        <button onClick={() => this.setState({ postId: 20 })}>click</button>
+      </div>
+    );
+  }
 }
 
 export default App;
