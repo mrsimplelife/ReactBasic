@@ -1,6 +1,8 @@
 import { Button } from "antd";
 import "App.css";
 import { Component } from "react";
+import PropTypes from "prop-types";
+import ThemedButton from "ThemedButton";
 
 const action = {
   init(initialValue) {
@@ -70,8 +72,10 @@ class Fruit extends Component {
     );
   }
 }
-
 class PostDetail extends Component {
+  static propTypes = {
+    postId: PropTypes.number.isRequired,
+  };
   state = {
     postDetail: null,
   };
@@ -121,7 +125,9 @@ class App extends Component {
         <Counter initialValue={0} />
         <Fruit fruits={fruits} />
         <PostDetail postId={this.state.postId} />
+        {/* <PostDetail /> */}
         <button onClick={() => this.setState({ postId: 20 })}>click</button>
+        <ThemedButton label="say hello" />
       </div>
     );
   }
