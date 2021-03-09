@@ -1,4 +1,5 @@
 import { Input, List } from "antd";
+import produce from "immer";
 import { Component } from "react";
 // class TodoItem extends Component {
 //   render() {
@@ -25,14 +26,49 @@ class TodoList extends Component {
     console.log(e.keyCode);
     const { keyCode } = e;
     if (keyCode === 13) {
-      const { todoList, current } = this.state;
-      if (!current.trim().length) {
-        return;
-      }
-      this.setState({
-        current: "",
-        todoList: [...todoList, current],
-      });
+      // const { todoList, current } = this.state;
+      // if (!current.trim().length) {
+      //   return;
+      // }
+      // this.setState({
+      //   current: "",
+      //   todoList: [...todoList, current],
+      // });
+      // const newState = produce(this.state, (draft) => {
+      //   if (!draft.current.trim().length) {
+      //     return;
+      //   }
+      //   draft.todoList.push(draft.current);
+      //   draft.current = "";
+      // });
+      // this.setState(newState);
+      // this.setState((prevState) =>
+      //   produce(prevState, (draft) => {
+      //     if (!draft.current.trim().length) {
+      //       return;
+      //     }
+      //     draft.todoList.push(draft.current);
+      //     draft.current = "";
+      //   })
+      // );
+      // this.setState((prevState) =>
+      //   produce((draft) => {
+      //     if (!draft.current.trim().length) {
+      //       return;
+      //     }
+      //     draft.todoList.push(draft.current);
+      //     draft.current = "";
+      //   })(prevState)
+      // );
+      this.setState(
+        produce((draft) => {
+          if (!draft.current.trim().length) {
+            return;
+          }
+          draft.todoList.push(draft.current);
+          draft.current = "";
+        })
+      );
     }
   };
 
