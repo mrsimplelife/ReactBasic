@@ -3,6 +3,7 @@ import "App.css";
 import { Component } from "react";
 import PropTypes from "prop-types";
 import ThemedButton from "ThemedButton";
+import Counter2 from "Counter";
 
 const action = {
   init(initialValue) {
@@ -115,11 +116,20 @@ class PostDetail extends Component {
 class App extends Component {
   state = {
     postId: 10,
+    myquery: "",
+    language: "",
+  };
+  onChange = (e) => {
+    const { name, value } = e.target;
+    console.log(value, this);
+    this.setState({
+      [name]: value,
+    });
   };
   render() {
     const fruits = ["banana", "apple", "strawberry"];
     return (
-      <div className="App">
+      <>
         <Counter initialValue={0} />
         <Counter initialValue={0} />
         <Counter initialValue={0} />
@@ -128,7 +138,11 @@ class App extends Component {
         {/* <PostDetail /> */}
         <button onClick={() => this.setState({ postId: 20 })}>click</button>
         <ThemedButton label="say hello" />
-      </div>
+        <Counter2 onClick={() => console.log("click")} />
+        <input name="myquery" onChange={this.onChange} />
+        <input name="language" onChange={this.onChange} />
+        {JSON.stringify(this.state)}
+      </>
     );
   }
 }
