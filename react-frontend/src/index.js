@@ -3,11 +3,12 @@ import ReactDOM from "react-dom";
 import "index.css";
 // import App from "App";
 import reportWebVitals from "reportWebVitals";
-import App2 from "App2";
+// import App from "App2";
+import App from "App3";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App2 />
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
