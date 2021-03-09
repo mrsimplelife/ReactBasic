@@ -8,7 +8,11 @@ class EpisodeDetail extends Component {
 
   render() {
     const {
-      episode: { id, name, image },
+      episode: {
+        //  id,
+        name,
+        image,
+      },
     } = this.state;
     const { medium: thumbUrl } = image;
     return (

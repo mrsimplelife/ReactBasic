@@ -1,19 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "index.css";
-// import App from "App";
 import reportWebVitals from "reportWebVitals";
+// import App from "App";
 // import App from "App2";
 // import App from "App3";
 // import TodoList from "TodoList";
 // import App from "App4";
-import EpisodeList from "EpisodeList";
+// import EpisodeList from "EpisodeList";
+import App, { AppClass } from "App5";
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App /> */}
+    <AppClass />
+    <App />
     {/* <TodoList /> */}
-    <EpisodeList />
+    {/* <EpisodeList /> */}
   </React.StrictMode>,
   document.getElementById("root")
 );
