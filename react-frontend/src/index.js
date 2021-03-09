@@ -5,12 +5,13 @@ import "index.css";
 import reportWebVitals from "reportWebVitals";
 // import App from "App2";
 // import App from "App3";
-import TodoList from "TodoList";
+// import TodoList from "TodoList";
+import App from "App4";
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <TodoList />
+    <App />
+    {/* <TodoList /> */}
   </React.StrictMode>,
   document.getElementById("root")
 );
