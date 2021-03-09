@@ -6,12 +6,14 @@ import reportWebVitals from "reportWebVitals";
 // import App from "App2";
 // import App from "App3";
 // import TodoList from "TodoList";
-import App from "App4";
+// import App from "App4";
+import EpisodeList from "EpisodeList";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
     {/* <TodoList /> */}
+    <EpisodeList />
   </React.StrictMode>,
   document.getElementById("root")
 );
