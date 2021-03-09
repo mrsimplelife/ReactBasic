@@ -12,7 +12,8 @@ import reportWebVitals from "reportWebVitals";
 // import App from "App6";
 // import App from "App7";
 // import App from "App8";
-import App from "App9";
+// import App from "App9";
+import App from "App10";
 
 ReactDOM.render(
   <React.StrictMode>
